@@ -1,0 +1,51 @@
+
+.loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    color: white;
+}
+
+
+
+.login h1 {
+    margin-bottom: 5 px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    box-sizing: border-box;     
+}   
+
+
+.actionButtons {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 50px;
+}
+
+.actionButtons button {
+    width: 120px;
+    height: 40px;
+    background-color: #333333;
+}
+
+.actionButtons button:hover {
+    background-color: #6200EE;
+    color: white;
+}
+
+p {
+    text-align: center;
+    color: white;
+}
