@@ -1,90 +1,86 @@
-.user-management-container {
+/* UserManagement.css */
+
+/* Main layout */
+.container {
   display: flex;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-.user-management-content {
-  width: calc(100% - 250px);
+.content {
+  width: calc(100% - 240px);
   padding: 20px 40px;
-  margin-left: 250px;
+  margin-left: 240px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* General page layout */
-.user-management h2 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #333;
-}
-
-/* Buttons */
-.user-management button {
-  font-size: 14px;
-  font-weight: 500;
+/* Header section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 /* Table styling */
-.table-container {
+.MuiTableContainer-root {
   margin-top: 20px;
   background-color: #f4f4f9;
+  width: 100%;
+  max-height: calc(100vh - 180px);
+  display: block;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.MuiTableHead-root {
-  background-color: #3f51b5;
+.MuiTableHead-root .MuiTableCell-root {
+  background-color: #1f83e0;
   color: white;
+  font-weight: 600;
 }
 
 .MuiTableCell-root {
-  font-size: 14px;
-  font-weight: 500;
   padding: 10px;
+  border-bottom: 1px solid rgba(224, 224, 224, 0.4);
 }
 
 .MuiTableRow-root:hover {
   background-color: #e8eaf6;
 }
 
-.MuiButton-contained {
-  text-transform: none;
+/* Button styling */
+.edit-btn {
+  background-color: #308dda;
+  color: white ;
+  margin-right: 8px ;
 }
 
-.MuiButton-containedPrimary {
-  background-color: #3f51b5;
-  color: white;
-}
-
-.MuiButton-containedSecondary {
-  background-color: #f44336;
-  color: white;
-}
-
-/* Modal form */
-.modal-box {
-  padding: 20px;
+/* Modal styling */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
   background-color: white;
-  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 8px;
 }
 
-.modal-box h6 {
+.modal h6 {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.modal-box input {
-  margin-bottom: 15px;
-}
-
-.MuiTextField-root {
-  margin-bottom: 10px;
-}
-
-.MuiModal-root .MuiBox-root {
-  max-width: 500px;
-  margin: auto;
-}
-
-.MuiModal-backdrop {
-  background-color: rgba(0, 0, 0, 0.3);
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }

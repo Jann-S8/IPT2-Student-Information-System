@@ -1,12 +1,23 @@
+.add-student-container {
+  display: flex;
+}
+
+.content {
+  margin-left: 200px;
+  padding: 20px;
+  flex: 1;
+}
+
 .header-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 40px;
   margin-bottom: 20px;
+  gap: 30px;
 }
 
-.ModalBox {
+.modal-box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -16,12 +27,4 @@
   padding: 32px;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.ml-1 {
-  margin-left: 8px;
-}
-
-.mt-2 {
-  margin-top: 16px;
 }

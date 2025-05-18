@@ -40,9 +40,10 @@ function Login() {
   }
 
   return (
-    <div className="loginPage"> 
+  <div className="loginPage">
+    <div className="container">
       <div className="login">
-        <h1>Login</h1>
+        <h1>LogIN</h1>
         <input 
           type="text"
           placeholder="Username"
@@ -56,25 +57,29 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <div className="error-message">{error}</div>}
-        
-        <Button 
-          variant="contained" 
-          onClick={handleSignIn}
-          disabled={isLoading}
-        >
-          {isLoading ? "Signing in..." : "Sign in"}
-        </Button>
 
-        <Button 
-          variant="contained" 
-          onClick={() => navigate("/register")}
-          disabled={isLoading}
-        >
-          Register
-        </Button>
+        <div className="actionButtons">
+          <Button 
+            variant="contained" 
+            onClick={handleSignIn}
+            disabled={isLoading}
+          >
+            {isLoading ? "Signing in..." : "Sign in"}
+          </Button>
+
+          <Button 
+            variant="contained" 
+            onClick={() => navigate("/register")}
+            disabled={isLoading}
+          >
+            Register
+          </Button>
+        </div>
       </div>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default Login;

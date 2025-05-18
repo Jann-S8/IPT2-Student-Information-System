@@ -1,3 +1,4 @@
+// AddStudent.jsx
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -15,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import Sidebar from "./Sidebar";
-import "./AddStudent.css";
+import "./AddStudent.css"; // CSS file included here
 
 function AddStudent() {
   const idRef = useRef();
@@ -71,23 +72,8 @@ function AddStudent() {
       return;
     }
 
-    if (!isLettersOnly(first)) {
-      alert("First Name should contain letters only.");
-      return;
-    }
-
-    if (!isLettersOnly(last)) {
-      alert("Last Name should contain letters only.");
-      return;
-    }
-
-    if (!isLettersOnly(middle)) {
-      alert("Middle Name should contain letters only.");
-      return;
-    }
-
-    if (!isLettersOnly(course)) {
-      alert("Course should contain letters only.");
+    if (!isLettersOnly(first) || !isLettersOnly(last) || !isLettersOnly(middle) || !isLettersOnly(course)) {
+      alert("Name fields and course should contain letters only.");
       return;
     }
 
@@ -117,33 +103,13 @@ function AddStudent() {
   async function handleUpdateStudent() {
     const { IDnumber, Firstname, Lastname, Middlename, Course, Year } = currentStudent;
 
-    if (!isNumericOnly(IDnumber)) {
-      alert("ID Number should contain numbers only.");
+    if (!isNumericOnly(IDnumber) || !isNumericOnly(Year)) {
+      alert("ID Number and Year should contain numbers only.");
       return;
     }
 
-    if (!isLettersOnly(Firstname)) {
-      alert("First Name should contain letters only.");
-      return;
-    }
-
-    if (!isLettersOnly(Lastname)) {
-      alert("Last Name should contain letters only.");
-      return;
-    }
-
-    if (!isLettersOnly(Middlename)) {
-      alert("Middle Name should contain letters only.");
-      return;
-    }
-
-    if (!isLettersOnly(Course)) {
-      alert("Course should contain letters only.");
-      return;
-    }
-
-    if (!isNumericOnly(Year)) {
-      alert("Year should contain numbers only.");
+    if (!isLettersOnly(Firstname) || !isLettersOnly(Lastname) || !isLettersOnly(Middlename) || !isLettersOnly(Course)) {
+      alert("Name fields and course should contain letters only.");
       return;
     }
 
@@ -186,11 +152,7 @@ function AddStudent() {
       <main className="content">
         <div className="header-section">
           <h2>STUDENT INFORMATION</h2>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => setAddModalOpen(true)}
-          >
+          <Button variant="contained" color="primary" onClick={() => setAddModalOpen(true)}>
             Add Student
           </Button>
         </div>
@@ -218,21 +180,10 @@ function AddStudent() {
                   <TableCell>{student.Course}</TableCell>
                   <TableCell>{student.Year}</TableCell>
                   <TableCell>
-                    <Button
-                      variant="contained"
-                      color="secondary"
-                      size="small"
-                      onClick={() => openEditModal(student)}
-                    >
+                    <Button variant="contained" color="primary" size="small" onClick={() => openEditModal(student)}>
                       Edit
                     </Button>
-                    <Button
-                      variant="contained"
-                      color="error"
-                      size="small"
-                      onClick={() => handleDeleteStudent(student.IDnumber)}
-                      className="ml-1"
-                    >
+                    <Button variant="contained" color="error" size="small" onClick={() => handleDeleteStudent(student.IDnumber)}>
                       Delete
                     </Button>
                   </TableCell>
@@ -242,31 +193,33 @@ function AddStudent() {
           </Table>
         </TableContainer>
 
-        {/* Add Modal */}
         <Modal open={addModalOpen} onClose={() => setAddModalOpen(false)}>
-          <Box className="ModalBox">
+          <Box className="modal-box">
             <Typography variant="h6">Add Student</Typography>
-            <TextField inputRef={idRef} label="ID Number" fullWidth margin="normal" inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} />
+            <TextField inputRef={idRef} label="ID Number" fullWidth margin="normal" />
             <TextField inputRef={fnameRef} label="First Name" fullWidth margin="normal" />
             <TextField inputRef={lnameRef} label="Last Name" fullWidth margin="normal" />
             <TextField inputRef={mnameRef} label="Middle Name" fullWidth margin="normal" />
             <TextField inputRef={courseRef} label="Course" fullWidth margin="normal" />
-            <TextField inputRef={yearRef} label="Year" fullWidth margin="normal" inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} />
-            <Button variant="contained" color="primary" fullWidth onClick={handleAddStudent} className="mt-2">Add Student</Button>
+            <TextField inputRef={yearRef} label="Year" fullWidth margin="normal" />
+            <Button variant="contained" color="primary" fullWidth onClick={handleAddStudent}>
+              Add Student
+            </Button>
           </Box>
         </Modal>
 
-        {/* Edit Modal */}
         <Modal open={editModalOpen} onClose={() => setEditModalOpen(false)}>
-          <Box className="ModalBox">
+          <Box className="modal-box">
             <Typography variant="h6">Edit Student</Typography>
-            <TextField name="IDnumber" label="ID Number" fullWidth margin="normal" value={currentStudent.IDnumber} onChange={handleEditChange} inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} />
+            <TextField name="IDnumber" label="ID Number" fullWidth margin="normal" value={currentStudent.IDnumber} onChange={handleEditChange} />
             <TextField name="Firstname" label="First Name" fullWidth margin="normal" value={currentStudent.Firstname} onChange={handleEditChange} />
             <TextField name="Lastname" label="Last Name" fullWidth margin="normal" value={currentStudent.Lastname} onChange={handleEditChange} />
             <TextField name="Middlename" label="Middle Name" fullWidth margin="normal" value={currentStudent.Middlename} onChange={handleEditChange} />
             <TextField name="Course" label="Course" fullWidth margin="normal" value={currentStudent.Course} onChange={handleEditChange} />
-            <TextField name="Year" label="Year" fullWidth margin="normal" value={currentStudent.Year} onChange={handleEditChange} inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} />
-            <Button variant="contained" color="primary" fullWidth onClick={handleUpdateStudent} className="mt-2">Update Student</Button>
+            <TextField name="Year" label="Year" fullWidth margin="normal" value={currentStudent.Year} onChange={handleEditChange} />
+            <Button variant="contained" color="primary" fullWidth onClick={handleUpdateStudent}>
+              Update Student
+            </Button>
           </Box>
         </Modal>
       </main>
