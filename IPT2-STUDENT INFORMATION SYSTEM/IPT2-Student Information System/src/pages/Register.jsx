@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Button, TextField, Typography, Box } from '@mui/material';
 
 function Register() {
+  const navigate = useNavigate(); // Hook for navigation
+
   const [userData, setUserData] = useState({
     IDnumber: '',
     Firstname: '',
@@ -28,6 +31,10 @@ function Register() {
       console.error("Error registering user:", error);
       alert("Error registering user.");
     }
+  };
+
+  const handleGoBack = () => {
+    navigate('/login'); // Adjust the path according to your route
   };
 
   return (
@@ -92,6 +99,9 @@ function Register() {
       />
       <Button variant="contained" color="primary" onClick={handleRegister} fullWidth sx={{ marginTop: 2 }}>
         Register
+      </Button>
+      <Button variant="outlined" color="secondary" onClick={handleGoBack} fullWidth sx={{ marginTop: 1 }}>
+        Go Back
       </Button>
     </Box>
   );
