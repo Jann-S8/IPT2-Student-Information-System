@@ -16,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import Sidebar from "./Sidebar";
-import "./AddStudent.css"; // CSS file included here
+import "./AddStudent.css"; 
 
 function AddStudent() {
   const idRef = useRef();

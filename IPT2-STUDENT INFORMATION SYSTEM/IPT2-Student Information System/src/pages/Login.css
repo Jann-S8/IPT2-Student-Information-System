@@ -1,10 +1,7 @@
-.loginPage {
-    display: flex;
-    height: 95vh;
-}
-
 .container {
     align-items: center;
+    justify-content: center;
+    margin-top: 10%;
 }
 
 .login {
@@ -28,10 +25,10 @@ input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    background-color: rgba(0, 0, 0, 0.05); /* Light gray input background */
+    background-color: rgba(0, 0, 0, 0.05); 
     border: none;
     border-radius: 5px;
-    color: black; /* Input text black */
+    color: black; 
     box-sizing: border-box;     
 }
 

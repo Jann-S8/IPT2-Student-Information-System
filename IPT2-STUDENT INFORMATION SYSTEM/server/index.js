@@ -7,7 +7,7 @@ const Student = require("./models/student.model.js");
 const User = require("./models/user.model.js");
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/StudentInformationSystem"); 
+mongoose.connect("mongodb://localhost:27017/InformationSystem"); 
 
 
 app.use(cors());

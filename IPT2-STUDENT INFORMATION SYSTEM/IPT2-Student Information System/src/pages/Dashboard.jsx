@@ -7,7 +7,6 @@ function Dashboard() {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    // Attempt to retrieve username from localStorage if available
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);

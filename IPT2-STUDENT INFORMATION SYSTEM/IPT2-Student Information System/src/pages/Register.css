@@ -1,0 +1,20 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30%;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 50%;
+}
+
+.register-title {
+  text-align: center;
+}
+
+.register-button,
+.back-button {
+  align-self: center;
+  width: 150px;
+}
